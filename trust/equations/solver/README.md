@@ -43,8 +43,9 @@ Usage
 
 Here is an example usage of the `Solver` type:
 
-goCopy code
-
-`solver := NewSolver()  // Add equations to the solver err := solver.AddEquation([]uint64{1, 2}, []float64{1.0, 1.0}, 0.5) if err != nil {     panic(err) }  // Solve the system of linear equations probabilities, err := solver.Solve() if err != nil {     panic(err) }  // Print the resulting probabilities fmt.Println(probabilities)`
+```
+solver := NewSolver()  // Add equations to the solver
+err := solver.AddEquation([]uint64{1, 2}, []float64{1.0, 1.0}, 0.5) if err != nil { panic(err) }  // Solve the system of linear equations probabilities, err := solver.Solve() if err != nil {     panic(err) }  // Print the resulting probabilities fmt.Println(probabilities)
+```
 
 In this example, we create a new `Solver` instance, add an equation to it, solve the system of linear equations, and print the resulting probabilities.
