@@ -3,7 +3,7 @@
 
 #### EBSL-Go is a Go implementation of Evidence Based Subjective Logic (EBSL). EBSL is an extension of Subjective Logic, which is a mathematical framework for reasoning under uncertainty and opinions. EBSL incorporates evidences into subjective logic to enable evidence-based reasoning.
 
-This project consists of four main files:
+This project consists of the implementation files:
 
 *   `evidence.go`: provides the definition of the evidence and its operations.
 *   `opinion.go`: provides the definition of the opinion and its operations.
