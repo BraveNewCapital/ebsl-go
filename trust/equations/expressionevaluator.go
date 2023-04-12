@@ -3,8 +3,8 @@ package equations
 import (
 	"errors"
 
-	"github.com/dimchansky/ebsl-go/opinion"
-	"github.com/dimchansky/ebsl-go/trust"
+	"github.com/BraveNewCapital/ebsl-go/opinion"
+	"github.com/BraveNewCapital/ebsl-go/trust"
 )
 
 var (

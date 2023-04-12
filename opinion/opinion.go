@@ -3,7 +3,7 @@ package opinion
 import (
 	"fmt"
 
-	"github.com/dimchansky/ebsl-go/evidence"
+	"github.com/BraveNewCapital/ebsl-go/evidence"
 )
 
 // Type of opinion

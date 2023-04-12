@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/dimchansky/ebsl-go/evidence"
-	"github.com/dimchansky/ebsl-go/opinion"
-	"github.com/dimchansky/ebsl-go/trust"
-	"github.com/dimchansky/ebsl-go/trust/equations"
-	"github.com/dimchansky/ebsl-go/trust/equations/solver"
+	"github.com/BraveNewCapital/ebsl-go/evidence"
+	"github.com/BraveNewCapital/ebsl-go/opinion"
+	"github.com/BraveNewCapital/ebsl-go/trust"
+	"github.com/BraveNewCapital/ebsl-go/trust/equations"
+	"github.com/BraveNewCapital/ebsl-go/trust/equations/solver"
 	"github.com/go-test/deep"
 )
 

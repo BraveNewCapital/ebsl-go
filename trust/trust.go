@@ -3,8 +3,8 @@ package trust
 import (
 	"fmt"
 
-	"github.com/dimchansky/ebsl-go/evidence"
-	"github.com/dimchansky/ebsl-go/opinion"
+	"github.com/BraveNewCapital/ebsl-go/evidence"
+	"github.com/BraveNewCapital/ebsl-go/opinion"
 )
 
 // Link represents trust direction

@@ -4,8 +4,8 @@ import (
 	"errors"
 	"math"
 
-	"github.com/dimchansky/ebsl-go/opinion"
-	"github.com/dimchansky/ebsl-go/trust/equations"
+	"github.com/BraveNewCapital/ebsl-go/opinion"
+	"github.com/BraveNewCapital/ebsl-go/trust/equations"
 )
 
 var (

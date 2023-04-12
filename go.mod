@@ -1,4 +1,4 @@
-module github.com/dimchansky/ebsl-go
+module github.com/BraveNewCapital/ebsl-go
 
 go 1.12
 

@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dimchansky/ebsl-go/trust"
-	"github.com/dimchansky/ebsl-go/trust/equations"
+	"github.com/BraveNewCapital/ebsl-go/trust"
+	"github.com/BraveNewCapital/ebsl-go/trust/equations"
 	"github.com/go-test/deep"
 )
 

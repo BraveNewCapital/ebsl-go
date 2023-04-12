@@ -1,5 +1,5 @@
 SHELL := bash
-PACKAGE_NAME := github.com/dimchansky/ebsl-go
+PACKAGE_NAME := github.com/BraveNewCapital/ebsl-go
 ARTIFACTS_DIR := $(if $(ARTIFACTS_DIR),$(ARTIFACTS_DIR),bin)
 
 PKGS ?= $(shell go list ./...)
