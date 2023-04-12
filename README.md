@@ -14,7 +14,6 @@ The EBSL-Go library consists of several packages and files:
 *   `trust/equations/equations.go`: This package contains types and functions for defining and solving trust equations.
 *   `trust/equations/expressionevaluator.go`: This package contains an expression evaluator used by the trust equation solver.
 *   `trust/equations/solver/solver.go`: This package contains a solver for trust equations.
-*   `main.go`: This file contains a simple command-line interface for experimenting with the EBSL-Go library.
 
 Mathematical Model
 ------------------
