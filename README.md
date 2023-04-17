@@ -15,27 +15,6 @@ Features
 Getting Started
 ---------------
 
-### Prerequisites
-
-*   Go 1.14 or later
-
-### Installation
-
-1.  Clone the EBSL-Go repository:
-
-
-`git clone https://github.com/yourusername/ebsl-go.git`
-
-2.  Change to the project directory:
-
-
-`cd ebsl-go`
-
-3.  Build the project:
-
-
-`go build`
-
 Usage
 -----
 
