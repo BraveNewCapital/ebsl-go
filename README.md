@@ -1,19 +1,87 @@
 EBSL-Go
 =======
 
-EBSL-Go is a Go library that implements the Evidence Based Subjective Logic (EBSL) mathematical model. EBSL is a probabilistic logic model that allows for reasoning with uncertain and subjective evidence. It is a useful tool for making decisions in situations where there is incomplete or uncertain information.
+EBSL-Go is an implementation of Evidence-Based Subjective Logic (EBSL) in Go. It provides a framework for modeling and analyzing trust relationships between entities in a network using a mathematical approach based on evidence and opinions.
 
-Overview
+Features
 --------
 
-The EBSL-Go library consists of several packages and files:
+*   Representation of direct and final referral trust relationships.
+*   Conversion of evidence-based trust relationships to subjective opinions.
+*   Calculation of final referral trust values using iterative solvers.
+*   Customizable solver options, distance functions, and aggregators.
+*   Interfaces for trust matrix iteration and manipulation.
 
-*   `evidence/evidence.go`: This package contains types and functions for representing and working with evidence.
-*   `opinion/opinion.go`: This package contains types and functions for representing and working with opinions.
-*   `trust/trust.go`: This package contains types and functions for representing and working with trust.
-*   `trust/equations/equations.go`: This package contains types and functions for defining and solving trust equations.
-*   `trust/equations/expressionevaluator.go`: This package contains an expression evaluator used by the trust equation solver.
-*   `trust/equations/solver/solver.go`: This package contains a solver for trust equations.
+Getting Started
+---------------
+
+### Prerequisites
+
+*   Go 1.14 or later
+
+### Installation
+
+1.  Clone the EBSL-Go repository:
+
+
+`git clone https://github.com/yourusername/ebsl-go.git`
+
+2.  Change to the project directory:
+
+
+`cd ebsl-go`
+
+3.  Build the project:
+
+
+`go build`
+
+Usage
+-----
+
+### Importing the package
+
+Import the necessary packages from the EBSL-Go project:
+
+goCopy code
+
+`import ( 	"github.com/yourusername/ebsl-go/evidence" 	"github.com/yourusername/ebsl-go/opinion" 	"github.com/yourusername/ebsl-go/trust" 	"github.com/yourusername/ebsl-go/trust/equations" 	"github.com/yourusername/ebsl-go/trust/equations/solver" )`
+
+### Direct and Final Referral Trust
+
+1.  Create direct referral trust relationships as a map of links and evidence:
+
+
+`directReferralEvidence := trust.DirectReferralEvidence{ 	trust.Link{From: 1, To: 2}: evidence.Type{P: 4, N: 1}, 	trust.Link{From: 2, To: 3}: evidence.Type{P: 2, N: 2}, 	// ... more relationships ... }`
+
+2.  Convert direct referral trust relationships to opinion space:
+
+
+`c := uint64(2) // Discount factor directReferralOpinion := directReferralEvidence.ToDirectReferralOpinion(c)`
+
+3.  Define a final referral trust equation context and set of equations:
+
+
+`context := equations.NewFinalReferralTrustEquationContext(directReferralOpinion) eqs := equations.NewFinalReferralTrustEquations(directReferralOpinion)`
+
+4.  Solve the final referral trust equations using the solver:
+
+
+`err := solver.SolveFinalReferralTrustEquations(context, eqs) if err != nil { 	panic(err) }`
+
+5.  Access the final referral trust values:
+
+
+`finalReferralTrust := context.GetFinalReferralTrust(trust.Link{From: 1, To: 3}) fmt.Printf("Final referral trust: %+v\n", finalReferralTrust)`
+
+Customizing the Solver
+----------------------
+
+You can customize the solver by passing options to the `SolveFinalReferralTrustEquations` function:
+
+
+`err := solver.SolveFinalReferralTrustEquations( 	context, eqs, 	solver.UseMaxEpochs(200), 	solver.UseEuclideanDistance(), 	solver.UseSumDistanceAggregator(), 	solver.UseTolerance(0.001), 	solver.UseOnEpochStartCallback(func(epoch uint) error { 		fmt.Printf("Epoch %d started\n", epoch) 		return nil 	}), 	solver.UseOnEpochEndCallback(func(epoch uint, aggregatedDistance float64) error { 		fmt.Printf("Epoch %d ended, aggregated distance: %f\n", epoch, aggregatedDistance) 		return nil 	}), )`
+
 
 Mathematical Model
 ------------------
@@ -24,9 +92,4 @@ EBSL also includes the concept of a trust, which is a measure of the degree to w
 
 The EBSL model provides a way to combine evidence and opinions to update one's beliefs about an event. This is done using the Bayesian update rule, which combines the prior belief with the new evidence to form a posterior belief. EBSL extends this idea to incorporate subjective opinions and uncertainty, allowing for more nuanced reasoning.
 
-Implementation
---------------
 
-The EBSL-Go library provides a Go implementation of the EBSL mathematical model. The `evidence` package provides types and functions for representing and working with evidence, such as `Evidence` and `EvidenceSet`. The `opinion` package provides types and functions for representing and working with opinions, such as `Opinion` and `OpinionSet`. The `trust` package provides types and functions for representing and working with trust, such as `Trust` and `TrustSet`.
-
-The `trust/equations` package provides types and functions for defining and solving trust equations. Trust equations are used to update trust opinions based on evidence and other trust opinions. The `ExpressionEvaluator` type in `expressionevaluator.go` is used to evaluate expressions in trust equations, and the `Solver` type in `solver.go` is used to solve the equations.
